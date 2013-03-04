@@ -1,4 +1,12 @@
 Lyfte::Application.routes.draw do
+  #devise_for :users
+  devise_for :users, :controllers => { :sessions => "sessions" }
+  devise_scope :user do
+    get "login", :to => "devise/sessions#new"
+    delete "/logout" => "devise/sessions#destroy"
+  end
+  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

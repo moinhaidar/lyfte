@@ -15,18 +15,12 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+gem 'devise'
+gem "bootstrap-sass", ">= 2.2.2.0"
+gem 'carrierwave'
+gem 'annotate', ">=2.5.0"
+gem "bcrypt-ruby", :require => "bcrypt"
+gem 'debugger'
 
 # Use unicorn as the app server
 # gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
