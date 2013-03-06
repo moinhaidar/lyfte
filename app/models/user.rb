@@ -40,8 +40,11 @@ class User < ActiveRecord::Base
   validates :referer, :presence => true
   validates :age, :numericality => { :only_integer => true, :greater_than => 17 }, :if => Proc.new { |u| !u.age.blank? }
   
+  has_many :documents
+  
   before_create :create_registeration_token
   
+  #TODO: Tweak per se requirement
   def self.registeration_url(email)
     user = User.find_by_email(email)
     return nil unless user
@@ -51,6 +54,7 @@ class User < ActiveRecord::Base
   
   private
   
+  #TODO: Tweak per se requirement
   def create_registeration_token
     self.salt = BCrypt::Engine.generate_salt
     self.registeration_token = BCrypt::Engine.hash_secret(email, salt)

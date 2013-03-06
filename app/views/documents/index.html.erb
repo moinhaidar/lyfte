@@ -1,0 +1,32 @@
+<% if @documents && !@documents.empty? %>
+	<h1>My Documents</h1>
+	
+	<table class="table table-bordered">
+	  <tr>
+	    <th>Name</th>
+	    <th>Owner</th>
+	    <th>Referrer</th>
+	    <th>Download</th>
+	    <th colspan="3">Actions</th>
+	  </tr>
+	
+	<% @documents.each do |document| %>
+	  <tr>
+	    <td><%= document.name %></td>
+	    <td><%= document.referrer  %></td>
+	    <td><%= link_to 'Download', document_download_path(document) %></td>
+	    <td><%= link_to 'View', document %></td>
+	    <td><%= link_to 'Edit', edit_document_path(document) %></td>
+	    <td><%= link_to 'Delete', document, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	  </tr>
+	<% end %>
+	</table>
+
+	<br />
+	<%= link_to 'Upload Document', new_document_path %>
+<% else %>
+	<div class='centered' style='margin-top: 20px;'>
+		<strong>You have not uploaded any document. <%= link_to 'Get Started', new_document_path %> Now</strong> 
+	</div>
+	<br />
+<% end %>

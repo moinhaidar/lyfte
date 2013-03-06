@@ -5,7 +5,9 @@ Lyfte::Application.routes.draw do
     get "login", :to => "devise/sessions#new"
     delete "/logout" => "devise/sessions#destroy"
   end
-  
+  resources :documents do
+    get :download
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

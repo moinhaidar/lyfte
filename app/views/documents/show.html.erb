@@ -1,0 +1,17 @@
+<p>
+  <b>User:</b>
+  <%= @document.user.name %>
+</p>
+<p>
+  <b>Referrer</b>
+  <%= @document.referrer %>
+</p>
+
+<p>
+  <b>File:</b>
+  <%= link_to 'Download', document_download_path(@document) %>
+</p>
+
+
+<%= link_to 'Edit', edit_document_path(@document) %> |
+<%= link_to 'Back', documents_path %>
